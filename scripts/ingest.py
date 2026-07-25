@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 import os
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from db_connection import get_db_connection
+from scripts.db_connection import get_db_connection
 import json
 from openai import OpenAI
 from dotenv import load_dotenv  

@@ -1,6 +1,6 @@
 
-from db_connection import get_db_connection
-from ingest import get_embedding
+from scripts.db_connection import get_db_connection
+from scripts.ingest import get_embedding
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from collections import defaultdict

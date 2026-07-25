@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 
-from query import main_pipeline
+from scripts.query import main_pipeline
 
 app = FastAPI()
 
