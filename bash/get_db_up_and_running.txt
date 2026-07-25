@@ -15,3 +15,5 @@ uvicorn api:app --reload --host 0.0.0.0 --port 8000
 
 #To start streamlit server
 streamlit run home.py
+
+# pip install langchain langchain-community openai python-dotenv pypdf
