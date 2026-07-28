@@ -15,7 +15,7 @@ def format_response(response):
 
 
    # Main Answer
-   st.markdown("### 💬 You're Answer")
+   st.markdown("### 💬 Your Answer")
    st.markdown(chatgpt_response)
 
 
