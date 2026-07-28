@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from scripts.db_connection import get_db_connection
 from scripts.query import main_pipeline
+import os
 
 app = FastAPI()
 
