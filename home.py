@@ -108,7 +108,7 @@ if send:
         st.warning("Please select at least one file.")
     else:
         user_query_and_file_selection = {"query": user_query, "files": file_selections}
-        response = requests.post("http://127.0.0.1:8000/query", json=user_query_and_file_selection)
+        response = requests.post("https://study-rag-assistant-final.onrender.com/query", json=user_query_and_file_selection)
         if response.status_code == 200:
             st.session_state.response = response.json()  # store it!
         else:
