@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-
+from scripts.db_connection import get_db_connection
 from scripts.query import main_pipeline
 
 app = FastAPI()
@@ -17,7 +17,17 @@ async def handle_query(request: Request):
         "list_of_references": query_response[2],                  #information about the references used by chatgpt as list of lists
         "list_of_context_strings": query_response[3]              # context strings used by chatgpt as list of strings
            }
-     
+
+
+@app.get("/files")
+async def list_files():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT DISTINCT metadata->>'source' FROM documents")
+    sources = [row[0] for row in cur.fetchall()]
+    cur.close()
+    conn.close()
+    return {"files": [os.path.basename(s) for s in sources]}
     
   
     

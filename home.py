@@ -61,11 +61,9 @@ def format_response(response):
    
 
 #MAKE A SIMPLE INTRO 
-data_path = "/workspaces/Study_RAG_assistant_final/data/"
-list_of_files=[]
-for filename in os.listdir(data_path):
- if filename.endswith('.pdf'):
-  list_of_files.append(filename)
+response = requests.get("https://study-rag-assistant-final.onrender.com/files")
+list_of_files = response.json()["files"]
+
 st.set_page_config(page_title="Study RAG Assistant", page_icon="📚", layout="wide")
 st.title("📚 Study RAG Assistant")
 st.caption("Ask questions about your PDFs. I'll search through your listed documents and create a response!")
