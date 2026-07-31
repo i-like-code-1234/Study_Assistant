@@ -3,6 +3,7 @@ import requests
 import os
 from collections import defaultdict
 
+API_BASE = st.secrets.get("API_BASE_URL", "http://localhost:8000")
 
 
 def format_response(response):
@@ -61,7 +62,7 @@ def format_response(response):
    
 
 #MAKE A SIMPLE INTRO 
-response = requests.get("https://study-rag-assistant-final.onrender.com/files")
+response = requests.get(f"{API_BASE}/files")
 list_of_files = response.json()["files"]
 
 st.set_page_config(page_title="Study RAG Assistant", page_icon="📚", layout="wide")
@@ -106,7 +107,7 @@ if send:
         st.warning("Please select at least one file.")
     else:
         user_query_and_file_selection = {"query": user_query, "files": file_selections}
-        response = requests.post("https://study-rag-assistant-final.onrender.com/query", json=user_query_and_file_selection)
+        response = requests.post(f"{API_BASE}/query", json=user_query_and_file_selection)
         if response.status_code == 200:
             st.session_state.response = response.json()  # store it!
         else:
