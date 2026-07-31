@@ -7,7 +7,7 @@ from openai import OpenAI
 from dotenv import load_dotenv  
 
 
-data_path = "/workspaces/Study_RAG_assistant_final/data/"
+data_path = "/workspaces/Study_Assistant/data/"
 load_dotenv()
 client=OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 

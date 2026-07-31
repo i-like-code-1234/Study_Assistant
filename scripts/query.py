@@ -25,7 +25,7 @@ Answer the question based on the above context: {question}
 def perform_similarity_search(query_string, file_selections,number_of_results=4):
  
  query_string_embedding=get_embedding(query_string) 
- directory_string   = '/workspaces/Study_RAG_assistant_final/data'   #edit file_selections
+ directory_string   = '/workspaces/Study_Assistant/data'   #edit file_selections
  file_selections=[f"{directory_string}/{file_name}" for file_name in file_selections]
 
  conn = get_db_connection()
